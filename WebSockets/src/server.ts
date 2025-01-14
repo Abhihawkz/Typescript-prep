@@ -5,7 +5,6 @@ const PORT = 8080
 const wss = new WebSocketServer({port:PORT});
 
 const allSockets : WebSocket[] = [];
-let users = 0;
 
 wss.on("connection",(s)=>{
     console.log("user connected");
