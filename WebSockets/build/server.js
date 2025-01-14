@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const ws_1 = require("ws");
-const port = 8080;
-const wss = new ws_1.WebSocketServer({ port: port });
+const PORT = 8080;
+const wss = new ws_1.WebSocketServer({ port: PORT });
 wss.on("connection", (s) => {
-    console.log("Web socket connection on");
+    console.log("WS connected");
     setInterval(() => {
-        s.send("some polling response");
+        s.send("hi");
     }, 1000);
-    s.on("message", (e) => {
-        console.log(e.toString());
+    s.on("message", () => {
+        s.send("hello");
     });
 });
